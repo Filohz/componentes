@@ -1,4 +1,3 @@
-import 'package:fl_componentes/screens/listview2_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,10 +16,7 @@ class HomeScreen extends StatelessWidget {
           leading: const Icon(Icons.adobe_sharp),
           title: const Text('Nombre de la ruta'),
           onTap: () {
-            final route = MaterialPageRoute(
-              builder: (context) => const Listview2Screen(),
-            );
-            Navigator.push(context, route);
+            Navigator.pushNamed(context, 'listview');
           },
         ),
         separatorBuilder: (_, __) => const Divider(),
