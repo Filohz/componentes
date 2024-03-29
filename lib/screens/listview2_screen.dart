@@ -7,19 +7,15 @@ class Listview2Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = Colors.blue[400];
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Games'),
-        elevation: 0.0,
-        backgroundColor: color,
+        title: const Text('Juegos'),
       ),
       body: ListView.separated(
         itemCount: options.length,
         itemBuilder: (context, index) => ListTile(
           title: Text(options[index]),
-          trailing: Icon(Icons.arrow_forward_ios, color: color),
+          trailing: const Icon(Icons.arrow_forward_ios),
           onTap: () {
             final game = options[index];
             print(game);

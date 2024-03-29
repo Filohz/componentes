@@ -6,10 +6,10 @@ class AppRoutes {
   static const initialRoute = 'home';
 
   static final menuOptions = <MenuOption>[
-    MenuOption(route: 'home',name: 'HomeScreen',icon: Icons.home,screen: const HomeScreen()),
-    MenuOption(route: 'listview',name: 'listview',icon: Icons.list_alt,screen: const Listview2Screen()),
+    MenuOption(route: 'home',name: 'Home',icon: Icons.home,screen: const HomeScreen()),
+    MenuOption(route: 'listview',name: 'Listview',icon: Icons.list_alt,screen: const Listview2Screen()),
     MenuOption(route: 'alert',name: 'Alert',icon: Icons.warning_amber_rounded,screen: const AlertScreen()),
-    MenuOption(route: 'card',name: 'Card Screen',icon: Icons.card_membership,screen: const CardScreen())
+    MenuOption(route: 'card',name: 'Card',icon: Icons.card_membership,screen: const CardScreen())
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
