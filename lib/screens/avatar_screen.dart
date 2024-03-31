@@ -7,7 +7,7 @@ class AvatarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Avatars'),
+        title: const Text('Avatar'),
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 5),
