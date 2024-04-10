@@ -10,32 +10,68 @@ class SliderScreen extends StatefulWidget {
 
 class _SliderScreenState extends State<SliderScreen> {
   double _slider = 10.0;
+  bool _sliderEnabled = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Slider')),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Slider(
-              activeColor: AppTheme.primary,
-              min: 10.0,
-              max: 400.0,
-              value: _slider,
-              onChanged: (value) {
-                _slider = value;
-                setState(() {});
-              },
+      body: Column(
+        children: [
+          Slider.adaptive(
+            activeColor: AppTheme.primary,
+            min: 10.0,
+            max: 400.0,
+            value: _slider,
+            onChanged: _sliderEnabled
+                ? (value) {
+                    _slider = value;
+                    setState(() {});
+                  }
+                : null,
+          ),
+          /*Checkbox(
+            activeColor: AppTheme.primary,
+            value: _sliderEnabled,
+            onChanged: (value) {
+              _sliderEnabled = value ?? true;
+              setState(() {});
+            },
+          ),*/
+          /*Switch(
+            activeColor: AppTheme.primary,
+            value: _sliderEnabled,
+            onChanged: (value) => setState(() {
+              _sliderEnabled = value;
+            }),
+          ),*/
+          CheckboxListTile.adaptive(
+            title: const Text("Enabled slider"),
+            activeColor: AppTheme.primary,
+            value: _sliderEnabled,
+            onChanged: (value) => setState(() {
+              _sliderEnabled = value ?? true;
+            }),
+          ),
+          SwitchListTile.adaptive(
+            title: const Text("Enabled slider"),
+            activeColor: AppTheme.primary,
+            value: _sliderEnabled,
+            onChanged: (value) => setState(() {
+              _sliderEnabled = value;
+            }),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Image(
+                image: const NetworkImage(
+                    'https://i.pinimg.com/originals/5c/44/59/5c4459cf68f2fff74ec1c753b10ae6a5.png'),
+                width: _slider,
+                fit: BoxFit.cover,
+              ),
             ),
-            Image(
-              image: const NetworkImage(
-                  'https://i.pinimg.com/originals/5c/44/59/5c4459cf68f2fff74ec1c753b10ae6a5.png'),
-              width: _slider,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(height: 20)
-          ],
-        ),
+          ),
+          const SizedBox(height: 20)
+        ],
       ),
     );
   }
